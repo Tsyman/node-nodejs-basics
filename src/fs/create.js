@@ -7,6 +7,10 @@ const create = async () => {
   const filePath = path.join(folderPath, "fresh.txt");
 
   try {
+    if (fs.existsSync(filePath)) {
+      throwError();
+    }
+
     const content = "I am fresh and young";
     fs.writeFileSync(filePath, content);
   } catch {
